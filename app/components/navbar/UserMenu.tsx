@@ -6,8 +6,10 @@ import { useRouter } from "next/navigation";
 
 import Avatar from "../Avatar";
 import MenuItem from "./MenuItem";
+import useRegisterModal from "@/app/hooks/useRegisterModal";
 
 const UserMenu = () => {
+    const registerModal = useRegisterModal();
     const [isOpen, setIsOpen] = useState(false);
     const router = useRouter();
 
@@ -75,7 +77,7 @@ const UserMenu = () => {
           "
         >
           <div className="flex flex-col cursor-pointer">
-            {true ? (
+            {false ? (
               <>
                 <MenuItem 
                   label="My trips" 
@@ -97,7 +99,14 @@ const UserMenu = () => {
               </>
             ) : (
               <>
-                
+                <MenuItem 
+                  label="Login" 
+                  onClick={registerModal.onOpen}
+                />
+                <MenuItem 
+                  label="Sign up" 
+                  onClick={registerModal.onOpen}
+                />
               </>
             )}
           </div>

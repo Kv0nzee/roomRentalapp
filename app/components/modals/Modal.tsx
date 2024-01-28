@@ -152,7 +152,7 @@ const Modal:React.FC<ModalProps> = ({
                                 </div>
                             </div>
                             {/* Body */}
-                            <div className="relative -06 flex-auto">
+                            <div className="relative p-6 flex-auto">
                                 {body}
                             </div>
                             {/* Footer  */}
@@ -178,6 +178,7 @@ const Modal:React.FC<ModalProps> = ({
                                         onClick={handleSubmit}
                                     />
                                 </div>
+                                {footer}
                             </div>
                         </div>
                     </div>
