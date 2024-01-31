@@ -24,6 +24,7 @@ const Navbar: React.FC<NavbarProps> = ({
                         justify-between
                         gap-3
                         md:gap-0
+                        h-10
                     "
                     >
                     <Logo />
