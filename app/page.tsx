@@ -12,7 +12,7 @@ export default async function Home() {
   if(listings.length === 0){
     return(
       <ClientOnly>
-        <EmptyState showReset/>
+      <EmptyState showReset/>
       </ClientOnly>
     )
   }
@@ -31,7 +31,7 @@ export default async function Home() {
             2xl:grid-cols-6
             gap-8
           ">
-              {listings.map((listing: any) => {
+              {listings.map((listing) => {
                 return(
                   <ListingCard
                     currentUser={currentUser}
