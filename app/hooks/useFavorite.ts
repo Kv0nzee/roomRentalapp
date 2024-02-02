@@ -53,7 +53,9 @@ const useFavorite = ({
                 toast.success('Add to Favorite');
             }
         }catch(error){
-            toast.error("Something went wrong.");
+            toast.error("Something went wrong.",{
+                position: "bottom-center"
+              });
         }
         
     }, [ currentUser, hasFavorited, listingId, loginModal, router ])
