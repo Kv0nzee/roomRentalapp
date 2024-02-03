@@ -7,7 +7,7 @@ import useCountries from '@/app/hooks/useCountries';
 export type CountrySelectValue = {
     fiag: string;
     label: string;
-    latLng: number[];
+    latlng: number[];
     region: string;
     value: string;
 }
