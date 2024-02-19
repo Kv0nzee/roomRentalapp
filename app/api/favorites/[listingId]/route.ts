@@ -2,7 +2,6 @@ import { NextResponse } from "next/server";
 
 import getCurrentUser from "@/app/actions/getCurrentUser";
 import prisma from '@/app/libs/prismadb';
-import { createSearchParamsBailoutProxy } from "next/dist/client/components/searchparams-bailout-proxy";
 
 interface IParams{
     listingId?: string;

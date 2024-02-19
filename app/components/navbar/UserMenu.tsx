@@ -11,6 +11,7 @@ import MenuItem from "./MenuItem";
 import useRegisterModal from "@/app/hooks/useRegisterModal";
 import useLoginModal from "@/app/hooks/useLoginModal";
 import useRentModal from "@/app/hooks/useRentModal";
+import useUserDetailModal from "@/app/hooks/useUserDetailModal";
 import { SafeUser } from "@/app/types";
 
 interface UserMenuProps{
@@ -23,6 +24,7 @@ const UserMenu: React.FC<UserMenuProps> = ({
     const registerModal = useRegisterModal();
     const loginModal = useLoginModal();
     const rentModal = useRentModal();
+    const userDetailModel = useUserDetailModal();
     const [isOpen, setIsOpen] = useState(false);
     const router = useRouter();
 
@@ -56,7 +58,7 @@ const UserMenu: React.FC<UserMenuProps> = ({
                 cursor-pointer
               "
             >
-              Airbnb your home
+              Rent your home
             </div>
             <div 
             onClick={toggleOpen}
@@ -100,6 +102,10 @@ const UserMenu: React.FC<UserMenuProps> = ({
               <div className="flex flex-col cursor-pointer">
                 {currentUser ? (
                   <>
+                    <MenuItem 
+                      label="Edit Profile" 
+                      onClick={userDetailModel.onOpen}
+                    />
                     <MenuItem 
                       label="My trips" 
                       onClick={() => router.push('/trips')}

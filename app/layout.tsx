@@ -9,6 +9,7 @@ import ToasterProvider from "./providers/ToasterProvider";
 import getCurrentUser from "./actions/getCurrentUser";
 import RentModal from "./components/modals/RentModal";
 import SearchModal from "./components/modals/SearchModal";
+import UserDetailModel from "./components/modals/UserDetailModal";
 
 const font = Nunito({ subsets: ["latin"] });
 
@@ -28,6 +29,7 @@ export default async function RootLayout({
     <html lang="en">
       <body className={font.className}>
         <ClientOnly>
+          <UserDetailModel currentUser={currentUser}/>
           <ToasterProvider/>
           <RegisterModal/>
           <LoginModal/>
