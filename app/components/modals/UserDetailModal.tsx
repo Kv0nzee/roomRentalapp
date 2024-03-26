@@ -259,7 +259,7 @@ const UserDetailModel:React.FC<UserDetailModalProps> = ({
         <Modal 
             disabled={isLoading} 
             isOpen={userDetailModel.isOpen} 
-            title='Register'
+            title='User Info'
             actionLabel={actionLabel}
             secondaryAction={step === STEPS.INFO ? undefined : onBack}
             secondaryActionLabel={secondaryActionLabel}

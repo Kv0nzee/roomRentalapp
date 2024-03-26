@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Nunito } from "next/font/google";
+import { Roboto } from "next/font/google";
 import "./globals.css";
 import Navbar from "./components/navbar/Navbar";
 import ClientOnly from "./components/ClientOnly";
@@ -10,8 +10,14 @@ import getCurrentUser from "./actions/getCurrentUser";
 import RentModal from "./components/modals/RentModal";
 import SearchModal from "./components/modals/SearchModal";
 import UserDetailModel from "./components/modals/UserDetailModal";
+//book page pyin yan
+ 
+const roboto = Roboto({
+  weight: '300',
+  subsets: ['latin'],
+})
 
-const font = Nunito({ subsets: ["latin"] });
+const font = roboto;
 
 export const metadata: Metadata = {
   title: "Booking App",
