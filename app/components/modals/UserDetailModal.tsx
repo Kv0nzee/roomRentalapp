@@ -65,33 +65,38 @@ const UserDetailModel:React.FC<UserDetailModalProps> = ({
         })
     }
 
-    const checkPasswordMatch  = useCallback(() => {
-    try {
-        const isCorrectPassword = true;
-
-        if (!isCorrectPassword) { // If the passwords don't match
-            toast.error('Current password does not match.',{
-                position: "bottom-right"
-            });
-            setIsWrongPassword(true);
-        } else if (watch('newPassword') !== watch('confirmPassword')) { 
-            toast.error('New password and confirm password do not match.',{
-                position: "bottom-right"
-            });
-            setIsWrongPassword(true);
-        } else {
-            toast.success('Password Match',{
-                position: "top-right"
-            });
-            setIsWrongPassword(false);
+    const checkPasswordMatch = useCallback(() => {
+        try {
+            const isCorrectPassword = true;
+    
+            if (!isCorrectPassword) { // If the passwords don't match
+                toast.error('Current password does not match.', {
+                    position: "bottom-right"
+                });
+                setIsWrongPassword(true);
+            } else if (watch('newPassword') !== watch('confirmPassword')) {
+                toast.error('New password and confirm password do not match.', {
+                    position: "bottom-right"
+                });
+                setIsWrongPassword(true);
+            } else if (!/(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]/.test(watch('newPassword'))) {
+                toast.error('Password must contain at least one uppercase letter, one lowercase letter, one number, and one special character.', {
+                    position: "bottom-right"
+                });
+                setIsWrongPassword(true);
+            } else {
+                toast.success('Password Match', {
+                    position: "top-right"
+                });
+                setIsWrongPassword(false);
+            }
+        }catch (error) {
+            console.error('Error comparing passwords:', error); // Log any errors during comparison
+            toast.error('An error occurred while comparing passwords.',{
+                position: "bottom-center"
+            }); 
         }
-    } catch (error) {
-        console.error('Error comparing passwords:', error); // Log any errors during comparison
-        toast.error('An error occurred while comparing passwords.',{
-            position: "bottom-center"
-        }); 
-    }
-}, [watch]);
+    }, [watch, setIsWrongPassword]);
 
     useEffect(() => {
         if(watch('newPassword') && watch('confirmPassword')){
